@@ -474,7 +474,7 @@
                 position: fixed;
                 top: 0;
                 left: -100%; /* Start off-screen */
-                width: 280px; /* 폭을 고정값 280px로 설정 */
+                width: 200px; /* 폭을 고정값 280px로 설정 */
                 max-width: 320px;
                 height: 100vh;
                 background: rgba(15, 15, 26, 0.7); /* 투명도 70% 적용 */
@@ -549,6 +549,22 @@
             .search-bar button {
                 padding: 0 20px;
                 font-size: 0.9rem;
+            }
+
+            /* Community Board Table Specific Styles for Mobile */
+            .board-table {
+                table-layout: fixed; /* 고정 테이블 레이아웃 */
+                width: 100%;
+            }
+
+            .board-table th:nth-child(1), .board-table td:nth-child(1) { width: 10%; } /* 번호 */
+            .board-table th:nth-child(2), .board-table td:nth-child(2) { width: 45%; } /* 제목 */
+            .board-table th:nth-child(3), .board-table td:nth-child(3) { width: 20%; } /* 작성자 */
+            .board-table th:nth-child(4), .board-table td:nth-child(4) { width: 15%; } /* 작성일 */
+            .board-table th:nth-child(5), .board-table td:nth-child(5) { width: 10%; } /* 조회 */
+
+            .board-table td {
+                word-break: break-word; /* 긴 단어 자동 줄바꿈 */
             }
         }
         

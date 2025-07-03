@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
         });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                mainNav.classList.remove('active');
+            }
+        });
     }
 
     // 3. Highlight active navigation link
