@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyniverse - 커스텀 키보드 커뮤니티</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-keyboard"></i>
+                <span class="logo-text">Keyniverse</span>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="community.html">커뮤니티</a></li>
+                    <li><a href="gallery.html">갤러리</a></li>
+                    <li><a href="#">리뷰</a></li>
+                    <li><a href="#">가이드</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-actions">
+                <a href="login.html" class="btn btn-outline">로그인</a>
+                <a href="signup.html" class="btn btn-primary">회원가입</a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>당신의 키보드 여정을 함께해요</h1>
+            <p>커스텀 키보드 매니아들을 위한 최고의 커뮤니티. 키캡, 스위치, 기계식 키보드에 관한 모든 것을 공유하세요.</p>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="키캡, 스위치, 키보드 검색...">
+                <button><i class="fas fa-search"></i> 검색</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Popular Topics -->
+        <div class="section-title">
+            <h2><i class="fas fa-fire"></i> 인기 게시글</h2>
+            <a href="#">더보기 <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-img">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <div class="card-content">
+                    <h3>첫 커스텀 키보드 조합 추천 부탁드립니다</h3>
+                    <p>처음 커스텀 키보드를 만들어보려고 합니다. 60% 레이아웃으로 생각 중인데 어떤 PCB와 케이스가 좋을까요?</p>
+                    <div class="tag">#초보자가이드</div>
+                    <div class="card-meta">
+                        <div><i class="fas fa-user"></i> 키보드초보</div>
+                        <div><i class="far fa-eye"></i> 324</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <div class="card-content">
+                    <h3>GMK 핑크키캡 세트 리뷰</h3>
+                    <p>기다리던 GMK 핑크 키캡 세트가 도착했습니다! 실제 색감과 품질에 대한 솔직한 후기 공유합니다.</p>
+                    <div class="tag">#키캡리뷰</div>
+                    <div class="card-meta">
+                        <div><i class="fas fa-user"></i> 키캡수집가</div>
+                        <div><i class="far fa-eye"></i> 541</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <div class="card-content">
+                    <h3>저소음 스위치 비교 (Zilent vs. Gazzew)</h3>
+                    <p>사무실에서 사용할 저소음 스위치를 비교해봤습니다. Zilent V2와 Gazzew Boba U4의 타건감과 소음 비교.</p>
+                    <div class="tag">#스위치비교</div>
+                    <div class="card-meta">
+                        <div><i class="fas fa-user"></i> 사무실타이퍼</div>
+                        <div><i class="far fa-eye"></i> 487</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Forums -->
+        <div id="forums-section" class="section-title">
+            <h2><i class="fas fa-comments"></i> 커뮤니티 게시판</h2>
+            <a href="community.html">전체보기 <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="forum-list">
+            <div class="forum-item">
+                <div class="forum-header">
+                    <div class="forum-name">자유 게시판</div>
+                    <div class="forum-stats">
+                        <div class="stat-item">
+                            <div class="stat-count">1.2K</div>
+                            <div class="stat-label">주제</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-count">5.8K</div>
+                            <div class="stat-label">게시글</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-desc">키보드에 관한 모든 이야기를 나누는 공간</div>
+                <div class="forum-latest"><i class="fas fa-clock"></i> 10분 전: 새로운 키캡 GB 정보</div>
+            </div>
+            
+            <div class="forum-item">
+                <div class="forum-header">
+                    <div class="forum-name">질문과 답변</div>
+                    <div class="forum-stats">
+                        <div class="stat-item">
+                            <div class="stat-count">892</div>
+                            <div class="stat-label">주제</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-count">3.4K</div>
+                            <div class="stat-label">게시글</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-desc">커스텀 키보드 관련 질문을 해결하는 곳</div>
+                <div class="forum-latest"><i class="fas fa-clock"></i> 30분 전: 풀 배열 PCB 추천 부탁드려요</div>
+            </div>
+            
+            <div class="forum-item">
+                <div class="forum-header">
+                    <div class="forum-name">조합 자랑</div>
+                    <div class="forum-stats">
+                        <div class="stat-item">
+                            <div class="stat-count">654</div>
+                            <div class="stat-label">주제</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-count">2.1K</div>
+                            <div class="stat-label">게시글</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-desc">나만의 커스텀 키보드를 자랑해보세요</div>
+                <div class="forum-latest"><i class="fas fa-clock"></i> 1시간 전: 첫 커스텀 키보드 완성했습니다!</div>
+            </div>
+            
+            <div class="forum-item">
+                <div class="forum-header">
+                    <div class="forum-name">중고 거래</div>
+                    <div class="forum-stats">
+                        <div class="stat-item">
+                            <div class="stat-count">421</div>
+                            <div class="stat-label">주제</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-count">1.5K</div>
+                            <div class="stat-label">게시글</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-desc">키보드 부품 및 완제품 거래</div>
+                <div class="forum-latest"><i class="fas fa-clock"></i> 2시간 전: [판매] GMK 레드샤인 키캡</div>
+            </div>
+            
+            <div class="forum-item">
+                <div class="forum-header">
+                    <div class="forum-name">키캡/스위치</div>
+                    <div class="forum-stats">
+                        <div class="stat-item">
+                            <div class="stat-count">723</div>
+                            <div class="stat-label">주제</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-count">3.1K</div>
+                            <div class="stat-label">게시글</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-desc">키캡과 스위치에 관한 모든 것</div>
+                <div class="forum-latest"><i class="fas fa-clock"></i> 3시간 전: 오링 모딩 효과 체감 후기</div>
+            </div>
+        </div>
+        
+        <!-- Gallery Preview -->
+        <div class="section-title">
+            <h2><i class="fas fa-images"></i> 키보드 갤러리</h2>
+            <a href="#">더보기 <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-img" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e);">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <div class="card-content">
+                    <h3>핑크 & 화이트 테마 키보드</h3>
+                    <p>GMK 핑크 키캡과 화이트 케이스의 완벽한 조화</p>
+                    <div class="card-meta">
+                        <div><i class="fas fa-heart" style="color: #ff6b6b;"></i> 142</div>
+                        <div><i class="far fa-comment"></i> 24</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img" style="background: linear-gradient(45deg, #4CAF50, #66BB6A);">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <div class="card-content">
+                    <h3>포레스트 그린 커스텀</h3>
+                    <p>대나무 키캡과 녹색 알루미늄 케이스</p>
+                    <div class="card-meta">
+                        <div><i class="fas fa-heart" style="color: #ff6b6b;"></i> 98</div>
+                        <div><i class="far fa-comment"></i> 18</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img" style="background: linear-gradient(45deg, #2196F3, #42A5F5);">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <div class="card-content">
+                    <h3>미니멀 블루 키보드</h3>
+                    <p>깔끔한 블루 그레이 톤의 65% 레이아웃</p>
+                    <div class="card-meta">
+                        <div><i class="fas fa-heart" style="color: #ff6b6b;"></i> 167</div>
+                        <div><i class="far fa-comment"></i> 32</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Keyniverse</h3>
+                    <p style="color: var(--light-gray); margin-bottom: 20px;">커스텀 키보드 매니아들을 위한 최고의 커뮤니티</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-discord"></i></a>
+                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>커뮤니티</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> 홈</a></li>
+                        <li><a href="community.html"><i class="fas fa-comments"></i> 자유게시판</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> 질문과 답변</a></li>
+                        <li><a href="#"><i class="fas fa-camera"></i> 갤러리</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart"></i> 중고거래</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>리소스</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-book"></i> 입문자 가이드</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> 커스텀 가이드</a></li>
+                        <li><a href="#"><i class="fas fa-clipboard-list"></i> 부품 데이터베이스</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-alt"></i> GB 일정</a></li>
+                        <li><a href="#"><i class="fas fa-store"></i> 인증 샵</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>고객 지원</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-headset"></i> 문의하기</a></li>
+                        <li><a href="#"><i class="fas fa-exclamation-circle"></i> 신고하기</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> 이용약관</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> 개인정보처리방침</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p id="copyright-text">&copy; 2023 Keyniverse. All rights reserved. 커스텀 키보드 커뮤니티</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
