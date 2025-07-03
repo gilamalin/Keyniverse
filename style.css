@@ -1,0 +1,796 @@
+:root {
+            --primary: #6a5acd;
+            --primary-dark: #5649b0;
+            --secondary: #ff6b6b;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --light: #f5f5f7;
+            --gray: #4a4a68;
+            --light-gray: #a0a0b5;
+            --card-bg: #252540;
+            --success: #4CAF50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: 80px; /* 헤더 높이만큼 패딩 */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(106, 90, 205, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        header.shrink {
+            padding: 8px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        header.shrink .logo-text {
+            display: none;
+        }
+        
+        header.shrink .logo {
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none; /* 밑줄 제거 */
+            display: inline-flex; /* 수직 정렬을 위해 flex 사용 */
+            align-items: center; /* 컨텐츠 수직 중앙 정렬 */
+            justify-content: center; /* 컨텐츠 수평 중앙 정렬 */
+        }
+        
+        header.shrink .btn {
+            padding: 6px 12px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .mobile-menu-toggle {
+            display: none; /* Hidden by default */
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(42, 39, 79, 0.6) 0%, rgba(26, 26, 46, 0) 70%);
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--light-gray);
+        }
+        
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .search-bar button {
+            padding: 0 25px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Content Sections */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-title a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .section-title a:hover {
+            color: var(--primary);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-img {
+            height: 160px;
+            background: linear-gradient(45deg, #4a3f8f, #6a5acd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-img i {
+            font-size: 3.5rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-content {
+            padding: 18px;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--light);
+        }
+        
+        .card p {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--light-gray);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: rgba(106, 90, 205, 0.2);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+        
+        /* Forums Section - 모바일 최적화 */
+        .forum-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .forum-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .forum-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .forum-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .forum-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+        
+        .forum-stats {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-count {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--light);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--light-gray);
+        }
+        
+        .forum-desc {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .forum-latest {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(10, 10, 20, 0.95);
+            padding: 50px 0 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .user-actions {
+                order: 2;
+            }
+
+            .logo {
+                order: 1;
+            }
+            
+            .header-container {
+                justify-content: space-between;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%; /* Start off-screen */
+                width: 280px; /* 폭을 고정값 280px로 설정 */
+                max-width: 320px;
+                height: 100vh;
+                background: rgba(15, 15, 26, 0.7); /* 투명도 70% 적용 */
+                padding: 80px 20px 40px; /* 상하 패딩을 늘림 */
+                z-index: 1050;
+                transition: left 0.3s ease-in-out, visibility 0s linear 0.3s; /* Transition left, hide instantly after transition */
+                visibility: hidden; /* Hidden by default */
+                order: 0; 
+            }
+
+            nav.active {
+                left: 0; /* Slide in */
+                visibility: visible; /* Visible */
+                transition: left 0.3s ease-in-out, visibility 0s linear 0s; /* Transition left, show instantly */
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px; /* 메뉴 항목 간 세로 간격을 늘림 */
+            }
+
+            nav a {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .logo-text {
+                display: none;
+            }
+            
+            .logo i {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .hero {
+                padding: 40px 0 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-bar input {
+                padding: 12px 18px;
+                font-size: 0.9rem;
+            }
+            
+            .search-bar button {
+                padding: 0 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .user-actions {
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 7px 14px;
+                font-size: 0.85rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .section-title a {
+                align-self: flex-end;
+            }
+            
+            .forum-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .forum-stats {
+                width: 100%;
+                justify-content: space-around;
+            }
+        }
+
+/* Auth Form Styles */
+.form-page-container {
+    display: flex;
+    flex-direction: column; /* 자식 요소들을 세로로 정렬 */
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: calc(100vh - 160px); /* Adjust based on header/footer height */
+}
+
+.back-to-home {
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.back-to-home:hover {
+    color: var(--light);
+}
+
+.back-to-home i {
+    margin-right: 5px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--card-bg);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--light);
+}
+
+.form-header p {
+    color: var(--light-gray);
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--light-gray);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+.btn-block {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.form-footer p {
+    color: var(--light-gray);
+}
+
+.form-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 5px;
+}
+
+.pagination .page-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: var(--card-bg);
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.pagination .page-link.active {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 500;
+}
+
+.pagination .page-link i {
+    margin: 0 5px;
+}
+
+/* Gallery Styles */
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    padding: 40px 20px 20px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.gallery-item-author {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
