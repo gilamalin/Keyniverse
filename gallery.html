@@ -7,13 +7,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Round:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            padding: 40px 20px 20px;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-item-author {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+    </style>
 </head>
 <body>
     <header id="mainHeader">
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-keyboard"></i>
-                <span class="logo-text">Keyniverse</span>
+                <span class="logo-text-keyni">Keyni</span>
             </a>
             
             <nav>
@@ -21,14 +83,13 @@
                     <li><a href="index.html">홈</a></li>
                     <li><a href="community.html">커뮤니티</a></li>
                     <li><a href="gallery.html">갤러리</a></li>
-                    <li><a href="#">리뷰</a></li>
+                    <li><a href="reviews.html">리뷰</a></li>
                     <li><a href="#">가이드</a></li>
                 </ul>
             </nav>
             
             <div class="user-actions">
                 <a href="login.html" class="btn btn-outline">로그인</a>
-                <a href="signup.html" class="btn btn-primary">회원가입</a>
             </div>
 
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -37,16 +98,16 @@
         </div>
     </header>
 
-    <main class="container" style="padding-top: 40px; padding-bottom: 40px;">
+    <main class="container main-content-area">
         <div class="gallery-header">
             <h2><i class="fas fa-images"></i> 갤러리</h2>
-            <button class="btn btn-primary"><i class="fas fa-upload"></i> 사진 올리기</button>
+            <button class="btn btn-primary" onclick="location.href='upload_photo.html'"><i class="fas fa-upload"></i> 사진 올리기</button>
         </div>
 
         <div class="gallery-grid">
             <!-- Gallery Item 1 -->
             <a href="#" class="gallery-item">
-                <img src="images/keyboard_1.png" alt="나의 첫 커스텀 키보드">
+                <img src="images/community/keyboard_1.png" alt="나의 첫 커스텀 키보드">
                 <div class="gallery-item-overlay">
                     <h3 class="gallery-item-title">나의 첫 커스텀 키보드</h3>
                     <p class="gallery-item-author">by 키보드초보</p>
@@ -54,7 +115,7 @@
             </a>
             <!-- Gallery Item 2 -->
             <a href="#" class="gallery-item">
-                <img src="images/keyboard_2.png" alt="우드 팜레스트와 함께">
+                <img src="images/community/keyboard_2.png" alt="우드 팜레스트와 함께">
                 <div class="gallery-item-overlay">
                     <h3 class="gallery-item-title">우드 팜레스트와 함께</h3>
                     <p class="gallery-item-author">by 나무사랑</p>
@@ -68,41 +129,13 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Keyniverse</h3>
-                    <p style="color: var(--light-gray); margin-bottom: 20px;">커스텀 키보드 매니아들을 위한 최고의 커뮤니티</p>
-                    <div style="display: flex; gap: 15px;">
-                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-discord"></i></a>
-                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
-                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
-                        <a href="#" style="font-size: 1.5rem;"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>커뮤니티</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">홈</a></li>
-                        <li><a href="community.html">커뮤니티</a></li>
-                        <li><a href="gallery.html">갤러리</a></li>
-                        <li><a href="#"><i class="fas fa-question-circle"></i> 질문과 답변</a></li>
-                        <li><a href="#"><i class="fas fa-camera"></i> 갤러리</a></li>
-                        <li><a href="#"><i class="fas fa-shopping-cart"></i> 중고거래</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>리소스</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-book"></i> 입문자 가이드</a></li>
-                        <li><a href="#"><i class="fas fa-tools"></i> 커스텀 가이드</a></li>
-                        <li><a href="#"><i class="fas fa-clipboard-list"></i> 부품 데이터베이스</a></li>
-                        <li><a href="#"><i class="fas fa-calendar-alt"></i> GB 일정</a></li>
-                        <li><a href="#"><i class="fas fa-store"></i> 인증 샵</a></li>
-                    </ul>
+                    <p style="color: var(--light-gray); margin-bottom: 20px;">키보드 오타쿠들의 성지</p>
                 </div>
                 
                 <div class="footer-column">
                     <h3>고객 지원</h3>
                     <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-bullhorn"></i> 공지사항</a></li>
                         <li><a href="#"><i class="fas fa-headset"></i> 문의하기</a></li>
                         <li><a href="#"><i class="fas fa-exclamation-circle"></i> 신고하기</a></li>
                         <li><a href="#"><i class="fas fa-info-circle"></i> 이용약관</a></li>
@@ -113,7 +146,7 @@
             </div>
             
             <div class="copyright">
-                <p id="copyright-text">&copy; 2023 Keyniverse. All rights reserved. 커스텀 키보드 커뮤니티</p>
+                <p id="copyright-text">&copy; 2025 Keyniverse. All rights reserved.</p>
             </div>
         </div>
     </footer>

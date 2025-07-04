@@ -49,8 +49,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 4. Update copyright year automatically
-    if (copyright) {
-        copyright.textContent = copyright.textContent.replace('KeebLovers', 'Keyniverse').replace(/\d{4}/, new Date().getFullYear());
-    }
+    
 });
