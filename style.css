@@ -1268,6 +1268,25 @@
     background-color: var(--primary-dark);
 }
 
+.upload-photo-container .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    min-height: 150px; /* 적절한 높이 설정 */
+    resize: vertical; /* 세로 크기 조절 가능 */
+}
+
+.upload-photo-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
 /* Write Post Page Styles */
 .write-post-container {
     max-width: 800px;
@@ -1290,17 +1309,20 @@
     border-color: var(--gray) !important;
 }
 .ql-snow .ql-stroke {
-    stroke: var(--light-gray);
+    stroke: #FFFFFF !important;
 }
 .ql-snow .ql-fill {
-    fill: var(--light-gray);
+    fill: #FFFFFF !important;
 }
-.ql-snow.ql-toolbar button:hover .ql-stroke,
-.ql-snow.ql-toolbar button:hover .ql-fill,
 .ql-snow.ql-toolbar button.ql-active .ql-stroke,
 .ql-snow.ql-toolbar button.ql-active .ql-fill {
-    stroke: var(--primary);
-    fill: var(--primary);
+    stroke: #A9A9A9 !important;
+    fill: #A9A9A9 !important;
+}
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-fill {
+    stroke: #6a5acd !important;
+    fill: #6a5acd !important;
 }
 .ql-editor.ql-blank::before {
     color: var(--light-gray) !important;
@@ -1330,6 +1352,30 @@
     margin-bottom: 25px;
     text-align: center;
 }
+.write-review-container .form-group select,
+.write-review-container .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.write-review-container .form-group select:focus,
+.write-review-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+.write-review-container .form-group textarea {
+    min-height: 150px; /* 적절한 높이 설정 */
+    resize: vertical; /* 세로 크기 조절 가능 */
+}
+
 .write-review-container .form-group select {
     -webkit-appearance: none;
     -moz-appearance: none;
