@@ -859,3 +859,487 @@
     font-size: 0.9rem;
     color: var(--light-gray);
 }
+
+
+/* Post Styles */
+.post-container {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.post-header {
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.post-author-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.author-name {
+    font-weight: 500;
+}
+
+.post-date {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.post-content {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.post-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray);
+}
+
+.action-btn {
+    background-color: var(--gray);
+    color: var(--light);
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: var(--primary);
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 40px;
+}
+
+.comments-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.comment {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+}
+
+.comment-body {
+    flex: 1;
+}
+
+.comment-author {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    margin-left: 10px;
+}
+
+.comment-text {
+    color: var(--light-gray);
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+/* Write/Edit Form */
+.write-form-container {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.write-form-container .form-group input[type="text"],
+.write-form-container .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.write-form-container .form-group input[type="text"]:focus,
+.write-form-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+.write-form-container .form-group textarea {
+    min-height: 250px;
+    resize: vertical;
+}
+
+.file-upload-group {
+    margin-top: 20px;
+}
+
+.file-upload-group input[type="file"] {
+    /* Basic styling, can be improved */
+    color: var(--light-gray);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-danger {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #d63031; /* A darker red */
+}
+
+/* Guide Page Styles */
+.guide-section {
+    margin-bottom: 50px;
+}
+.guide-section h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-dark);
+}
+.guide-section h3 {
+    font-size: 1.5rem;
+    color: var(--light);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.guide-section p, .guide-section li {
+    color: var(--light-gray);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+.guide-section ul {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+.guide-section strong {
+    color: var(--secondary);
+    font-weight: 500;
+}
+.component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+.component-item {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.component-item .img-placeholder {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--gray);
+}
+.component-item h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+.layout-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.layout-table th, .layout-table td {
+    border: 1px solid var(--gray);
+    padding: 12px 15px;
+    text-align: left;
+}
+.layout-table th {
+    background-color: var(--card-bg);
+    color: var(--light);
+}
+.tool-list li {
+    margin-bottom: 10px;
+}
+.next-steps {
+    text-align: center;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+}
+.next-steps .buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Add gap for spacing */
+}
+
+.next-steps .btn {
+    margin: 0; /* Remove margin as gap is used */
+}
+
+/* Community Page Styles */
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.board-table th, .board-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.board-table th {
+    background-color: rgba(0,0,0,0.2);
+    font-weight: 500;
+    color: var(--light-gray);
+}
+.board-table tbody tr:hover {
+    background-color: var(--gray);
+}
+.board-table td a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.board-table .post-title {
+    font-size: 1.1rem; /* Adjust font size as needed */
+    margin-bottom: 8px;
+}
+
+.board-table td a:hover {
+    color: var(--primary);
+}
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+
+/* Reviews Page Styles */
+.reviews-section {
+    /* margin-top: 40px; */
+}
+.review-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.review-title {
+    font-size: 1.4rem;
+    color: var(--light);
+    margin-bottom: 5px;
+}
+.review-meta {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
+.review-author {
+    font-weight: 500;
+    color: var(--primary);
+}
+.review-rating .fas.fa-star {
+    color: gold;
+}
+.review-content {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin-top: 15px;
+}
+.review-form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.review-form-container h2 {
+    color: var(--light);
+    margin-bottom: 25px;
+    text-align: center;
+}
+#reviewFormSection {
+    display: none; /* 기본적으로 숨김 */
+}
+
+/* Upload Photo Page Styles */
+.upload-photo-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.upload-photo-container h2 {
+    color: var(--light);
+    margin-bottom: 25px;
+    text-align: center;
+}
+.upload-photo-container .form-group input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    background-color: rgba(0,0,0,0.2);
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.upload-photo-container .form-group input[type="file"]::file-selector-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+.upload-photo-container .form-group input[type="file"]::file-selector-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Write Post Page Styles */
+.write-post-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.write-post-container h2 {
+    color: var(--light);
+    margin-bottom: 25px;
+    text-align: center;
+}
+#editor {
+    min-height: 350px; /* 내용 입력칸 높이 증가 */
+}
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+    border-color: var(--gray) !important;
+}
+.ql-snow .ql-stroke {
+    stroke: var(--light-gray);
+}
+.ql-snow .ql-fill {
+    fill: var(--light-gray);
+}
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-fill {
+    stroke: var(--primary);
+    fill: var(--primary);
+}
+.ql-editor.ql-blank::before {
+    color: var(--light-gray) !important;
+}
+.ql-snow .ql-picker-label,
+.ql-snow .ql-picker-item {
+    color: var(--light-gray);
+}
+.ql-snow .ql-picker-label:hover,
+.ql-snow .ql-picker-item:hover,
+.ql-snow .ql-picker-label.ql-active,
+.ql-snow .ql-picker-item.ql-active {
+    color: var(--primary);
+}
+
+/* Write Review Page Styles */
+.write-review-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.write-review-container h2 {
+    color: var(--light);
+    margin-bottom: 25px;
+    text-align: center;
+}
+.write-review-container .form-group select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0a0b5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 1em;
+}
+.write-review-container .form-group select option {
+    background-color: var(--card-bg);
+    color: var(--light);
+}
