@@ -1,0 +1,371 @@
+/* Auth Form Styles */
+.form-page-container {
+    display: flex;
+    flex-direction: column; /* 자식 요소들을 세로로 정렬 */
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: calc(100vh - 160px); /* Adjust based on header/footer height */
+}
+
+.back-to-home {
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.back-to-home:hover {
+    color: var(--light);
+}
+
+.back-to-home i {
+    margin-right: 5px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--card-bg);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--light);
+}
+
+.form-header p {
+    color: var(--light-gray);
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--light-gray);
+}
+
+/* General Form Control Styles */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+/* Select specific styles for form-control */
+select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* 화살표 위치 조정 */
+    background-size: 1.1em; /* 화살표 크기 조정 */
+    padding: 8px 12px; /* 패딩 조정 */
+    padding-right: 35px; /* 화살표 공간 확보 */
+    font-size: 0.9rem; /* 폰트 크기 조정 */
+}
+
+select.form-control option {
+    background-color: var(--card-bg);
+    color: var(--light);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.form-footer p {
+    color: var(--light-gray);
+}
+
+.form-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Write/Edit Form */
+.write-form-container {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.write-form-container .form-group input[type="text"],
+.write-form-container .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.write-form-container .form-group input[type="text"]:focus,
+.write-form-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+.write-form-container .form-group textarea {
+    min-height: 250px;
+    resize: vertical;
+}
+
+.file-upload-group {
+    margin-top: 20px;
+}
+
+.file-upload-group input[type="file"] {
+    /* Basic styling, can be improved */
+    color: var(--light-gray);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Upload Photo Page Styles */
+.upload-photo-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.upload-photo-container h2 {
+    color: var(--light);
+    margin-bottom: 25px;
+    text-align: center;
+}
+.upload-photo-container .form-group input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    background-color: rgba(0,0,0,0.2);
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.upload-photo-container .form-group input[type="file"]::file-selector-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+.upload-photo-container .form-group input[type="file"]::file-selector-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.upload-photo-container .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    min-height: 150px; /* 적절한 높이 설정 */
+    resize: vertical; /* 세로 크기 조절 가능 */
+}
+
+.upload-photo-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+/* Write Post Page Styles */
+.write-post-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.write-post-container h2 {
+    color: var(--light);
+    margin-bottom: 25px;
+    text-align: center;
+}
+#editor {
+    min-height: 350px; /* 내용 입력칸 높이 증가 */
+}
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+    border-color: var(--gray) !important;
+}
+.ql-snow .ql-stroke {
+    stroke: #FFFFFF !important;
+}
+.ql-snow .ql-fill {
+    fill: #FFFFFF !important;
+}
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-fill {
+    stroke: #A9A9A9 !important;
+    fill: #A9A9A9 !important;
+}
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-fill {
+    stroke: #6a5acd !important;
+    fill: #6a5acd !important;
+}
+.ql-editor.ql-blank::before {
+    color: var(--light-gray) !important;
+}
+.ql-snow .ql-picker-label,
+.ql-snow .ql-picker-item {
+    color: var(--light-gray);
+}
+.ql-snow .ql-picker-label:hover,
+.ql-snow .ql-picker-item:hover,
+.ql-snow .ql-picker-label.ql-active,
+.ql-snow .ql-picker-item.ql-active {
+    color: var(--primary);
+}
+
+/* Write Review Page Styles */
+.write-review-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.write-review-container h2 {
+    color: var(--light);
+    margin-bottom: 25px;
+    text-align: center;
+}
+.write-review-container .form-group select,
+.write-review-container .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.write-review-container .form-group select:focus,
+.write-review-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.3);
+}
+
+.write-review-container .form-group textarea {
+    min-height: 150px; /* 적절한 높이 설정 */
+    resize: vertical; /* 세로 크기 조절 가능 */
+}
+
+.write-review-container .form-group select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 1.5em;
+}
+.write-review-container .form-group select option {
+    background-color: var(--card-bg);
+    color: var(--light);
+}
+
+
+.rating-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating-stars {
+    direction: rtl;
+    display: inline-block;
+}
+
+.rating-stars input[type="radio"] {
+    display: none;
+}
+
+.rating-stars label {
+    font-size: 2rem;
+    color: var(--gray);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: gold;
+}

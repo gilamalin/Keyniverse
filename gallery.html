@@ -6,7 +6,12 @@
     <title>갤러리 - Keyniverse</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="forms.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Round:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     
@@ -47,7 +52,7 @@
         <div class="gallery-grid">
             <!-- Gallery Item 1 -->
             <a href="#" class="gallery-item">
-                <img src="images/community/keyboard_1.png" alt="나의 첫 커스텀 키보드">
+                <img src="images/community/keyboard_1.png" alt="나의 첫 커스텀 키보드" loading="lazy">
                 <div class="gallery-item-overlay">
                     <h3 class="gallery-item-title">나의 첫 커스텀 키보드</h3>
                     <p class="gallery-item-author">by 키보드초보</p>
@@ -55,7 +60,7 @@
             </a>
             <!-- Gallery Item 2 -->
             <a href="#" class="gallery-item">
-                <img src="images/community/keyboard_2.png" alt="우드 팜레스트와 함께">
+                <img src="images/community/keyboard_2.png" alt="우드 팜레스트와 함께" loading="lazy">
                 <div class="gallery-item-overlay">
                     <h3 class="gallery-item-title">우드 팜레스트와 함께</h3>
                     <p class="gallery-item-author">by 나무사랑</p>
@@ -63,6 +68,8 @@
             </a>
         </div>
     </main>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <footer>
         <div class="container">

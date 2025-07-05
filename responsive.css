@@ -1,0 +1,378 @@
+/* Responsive */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .user-actions {
+        order: 2;
+    }
+
+    .logo {
+        order: 1;
+        padding: 5px 0;
+    }
+    
+    .header-container {
+        justify-content: space-between;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Start off-screen */
+        width: 200px; /* 폭을 고정값 280px로 설정 */
+        max-width: 320px;
+        height: 100vh;
+        background: rgba(15, 15, 26, 0.7); /* 투명도 70% 적용 */
+        padding: 80px 20px 40px; /* 상하 패딩을 늘림 */
+        z-index: 1050;
+        transition: left 0.3s ease-in-out, visibility 0s linear 0.3s; /* Transition left, hide instantly after transition */
+        visibility: hidden; /* Hidden by default */
+        order: 0; 
+    }
+
+    nav.active {
+        left: 0; /* Slide in */
+        visibility: visible; /* Visible */
+        transition: left 0.3s ease-in-out, visibility 0s linear 0s; /* Transition left, show instantly */
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px; /* 메뉴 항목 간 세로 간격을 늘림 */
+    }
+
+    nav a {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding-top: 40px; /* 모바일에서 hero 섹션의 상단 패딩 조정 */
+    }
+
+    /* Footer alignment for smaller screens */
+    .footer-column {
+        text-align: left; /* Ensure text is left-aligned */
+    }
+    .footer-column h3::after {
+        left: 0; /* Ensure the underline is left-aligned */
+    }
+    .footer-links {
+        justify-content: flex-start; /* Ensure links are left-aligned */
+    }
+
+    /* .main-content-area {
+        padding-top: 100px; 
+    } */
+}
+
+/* Responsive Table for Community Page */
+@media (max-width: 768px) {
+    .board-table, .board-table tbody, .board-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .board-table thead {
+        display: none;
+    }
+
+    .board-table tr {
+        margin-bottom: 15px;
+        border: none; /* Removed border */
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: var(--card-bg);
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping for title */
+        position: relative;
+        align-items: center; /* Vertically center align items */
+    }
+
+    .board-table td {
+        text-align: left;
+        padding: 5px 0;
+        border-bottom: none;
+        position: static; /* Reset position for flexbox */
+        width: auto; /* Reset width */
+        flex: 1 1 auto; /* Allow flex items to grow/shrink */
+        min-width: 0; /* Prevent overflow */
+    }
+
+    .board-table td::before {
+        /* content: attr(data-label) ": "; */ /* Keep labels hidden */
+        font-weight: bold;
+        color: var(--primary);
+        display: inline-block;
+        width: 70px; /* Adjust label width as needed */
+        margin-right: 5px;
+    }
+
+    .board-table td.post-title-cell {
+        order: 1; /* Title at the top */
+        width: 100%; /* Ensure title takes full width */
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--light);
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 10px;
+        flex: none; /* Do not allow title to shrink/grow with others */
+    }
+
+    .board-table td.post-title-cell a {
+        color: var(--light);
+        text-decoration: none;
+    }
+
+    .board-table td.post-title-cell a:hover {
+        color: var(--primary);
+    }
+
+    .board-table td.post-category-cell {
+        order: 2; /* Order for flexbox */
+        flex: 0 0 auto; /* Ensure it only takes content width */
+        font-size: 0.8rem; /* Slightly larger for readability */
+        padding: 0 10px 0 0; /* Increased padding-right for more spacing */
+    }
+
+    .board-table td.post-author-cell {
+        order: 3; /* Order for flexbox */
+        flex: 0 0 auto; /* Ensure it only takes content width */
+        font-size: 0.8rem; /* Slightly larger for readability */
+        /* Removed padding-left */
+    }
+
+    /* New container for bottom stats */
+    .board-table td.post-stats-bottom-container {
+        order: 4; /* Place at the bottom right */
+        margin-left: auto; /* Push to the right */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px; /* Spacing between stats items */
+    }
+
+    .board-table td.post-stats-bottom-container span {
+        font-size: 0.8rem; /* Slightly larger for readability */
+        white-space: nowrap;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .board-table td.post-stats-bottom-container span i {
+        margin-right: 5px;
+    }
+
+    /* Hide original post-meta on mobile if not needed */
+    .board-table .post-item-content .post-meta {
+        display: none;
+    }
+
+    /* Adjust no posts message for new colspan */
+    .board-table td[colspan="6"] {
+        text-align: center !important;
+        padding: 50px 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content-area {
+            /* padding-top: 30px; */ /* Removed problematic padding */
+        }
+    
+    .footer-content {
+        justify-content: flex-start;
+    }
+
+    .footer-column {
+        text-align: left;
+    }
+
+    .footer-links {
+        align-items: flex-start;
+    }
+
+    .logo-text {
+        display: none;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        padding: 40px 0 30px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.2rem;
+    }
+
+    .section-title h2 i {
+        font-size: 1.2rem; /* Adjust icon size */
+        margin-right: 5px; /* Add some space between icon and text */
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-bar input {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .search-bar button {
+        padding: 0 20px;
+        font-size: 0.9rem;
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    .main-content-area {
+        padding-top: 30px; /* 헤더 높이 60px + 추가 여백 40px */
+    }
+    
+    .user-actions {
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .section-title a {
+        align-self: flex-end;
+    }
+    
+    .forum-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .forum-stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content-area {
+        padding-top: 30px; /* 헤더 높이 60px + 추가 여백 40px */
+    }
+    
+    .user-actions {
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .section-title a {
+        align-self: flex-end;
+    }
+    
+    .forum-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .forum-stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content-area {
+        padding-top: 30px; /* 헤더 높이 60px + 추가 여백 40px */
+    }
+    
+    .user-actions {
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .section-title a {
+        align-self: flex-end;
+    }
+    
+    .forum-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .forum-stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,37 @@
+:root {
+            --primary: #6a5acd;
+            --primary-dark: #5649b0;
+            --secondary: #ff6b6b;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --light: #f5f5f7;
+            --gray: #4a4a68;
+            --light-gray: #a0a0b5;
+            --card-bg: #252540;
+            --success: #4CAF50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Noto Sans KR', 'Jua', sans-serif;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: 80px; /* 헤더와 콘텐츠 사이 공간 조정 */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-content-area {
+            padding-bottom: 40px;
+        }
