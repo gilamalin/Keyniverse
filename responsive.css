@@ -70,13 +70,8 @@
     .footer-links {
         justify-content: flex-start; /* Ensure links are left-aligned */
     }
-
-    /* .main-content-area {
-        padding-top: 100px; 
-    } */
 }
 
-/* Responsive Table for Community Page */
 @media (max-width: 768px) {
     .board-table, .board-table tbody, .board-table tr {
         display: block;
@@ -97,12 +92,12 @@
         display: flex;
         flex-wrap: wrap; /* Allow wrapping for title */
         position: relative;
-        align-items: center; /* Vertically center align items */
+        align-items: flex-start; /* Align items to the start to prevent vertical stretching */
     }
 
     .board-table td {
         text-align: left;
-        padding: 5px 0;
+        padding: 5px 0; /* Adjust padding for better spacing */
         border-bottom: none;
         position: static; /* Reset position for flexbox */
         width: auto; /* Reset width */
@@ -119,7 +114,12 @@
         margin-right: 5px;
     }
 
-    .board-table td.post-title-cell {
+    .board-table td.post-left-group,
+    .board-table td.post-right-group {
+        display: contents; /* This makes the container elements effectively disappear for flexbox purposes */
+    }
+
+    .board-table .post-title-cell {
         order: 1; /* Title at the top */
         width: 100%; /* Ensure title takes full width */
         font-size: 1.1rem;
@@ -129,66 +129,104 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         margin-bottom: 10px;
         flex: none; /* Do not allow title to shrink/grow with others */
+        white-space: normal; /* Allow text to wrap */
+        word-break: break-word; /* Break long words */
     }
 
-    .board-table td.post-title-cell a {
-        color: var(--light);
-        text-decoration: none;
-    }
-
-    .board-table td.post-title-cell a:hover {
-        color: var(--primary);
-    }
-
-    .board-table td.post-category-cell {
-        order: 2; /* Order for flexbox */
-        flex: 0 0 auto; /* Ensure it only takes content width */
-        font-size: 0.8rem; /* Slightly larger for readability */
-        padding: 0 10px 0 0; /* Increased padding-right for more spacing */
-    }
-
-    .board-table td.post-author-cell {
-        order: 3; /* Order for flexbox */
-        flex: 0 0 auto; /* Ensure it only takes content width */
-        font-size: 0.8rem; /* Slightly larger for readability */
-        /* Removed padding-left */
-    }
-
-    /* New container for bottom stats */
-    .board-table td.post-stats-bottom-container {
-        order: 4; /* Place at the bottom right */
-        margin-left: auto; /* Push to the right */
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px; /* Spacing between stats items */
-    }
-
-    .board-table td.post-stats-bottom-container span {
-        font-size: 0.8rem; /* Slightly larger for readability */
+    .board-table .post-category-cell,
+    .board-table .post-author-cell {
+        order: 2;
+        font-size: 0.8rem;
         white-space: nowrap;
-        flex-shrink: 0;
+    }
+
+    /* Right-aligned meta items */
+    .board-table .post-date-cell,
+    .board-table .post-views-cell,
+    .board-table .post-likes-cell {
+        order: 2;
+        font-size: 0.8rem;
+        white-space: nowrap;
         display: flex;
         align-items: center;
+        gap: 5px;
+        flex-shrink: 0; /* Prevent shrinking */
     }
 
-    .board-table td.post-stats-bottom-container span i {
-        margin-right: 5px;
+    .board-table .post-date-cell {
+        margin-left: auto; /* This is the key change */
+        width: 60px; /* Final reduction */
+        justify-content: center;
+    }
+    .board-table .post-views-cell {
+        width: 45px; /* Final reduction */
+        justify-content: center;
+    }
+    .board-table .post-likes-cell {
+        width: 45px; /* Final reduction */
+        justify-content: center;
     }
 
-    /* Hide original post-meta on mobile if not needed */
+    /* This is a new container to group the right-aligned stats */
+    .board-table tr {
+        /* ... existing styles ... */
+        gap: 0 15px; /* Add horizontal gap between meta items */
+    }
+
+    .post-meta {
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping */
+        justify-content: flex-start; /* Align items to the start */
+        align-items: center;
+        gap: 10px; /* Adjust gap as needed */
+        overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    .post-author-info {
+        flex-direction: row; /* Keep author icon, name, and date in a row */
+        align-items: center;
+        gap: 5px;
+        flex-shrink: 0;
+    }
+
+    .post-date {
+        margin-left: 5px; /* Add a small margin to separate from author name */
+        flex-shrink: 0;
+    }
+
+    .post-stats {
+        flex-shrink: 0;
+    }
+
     .board-table .post-item-content .post-meta {
         display: none;
     }
 
     /* Adjust no posts message for new colspan */
+    .post-title {
+        font-size: 1.5rem; /* Adjust as needed for mobile */
+    }
+
+    .comments-section h3,
+    .comment-form h3 {
+        font-size: 1.2rem; /* Adjust as needed for mobile */
+    }
+
     .board-table td[colspan="6"] {
         text-align: center !important;
         padding: 50px 0 !important;
     }
-}
 
-@media (max-width: 768px) {
+    .action-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .action-btn i {
+        font-size: 0.9rem;
+    }
+    
     .main-content-area {
             /* padding-top: 30px; */ /* Removed problematic padding */
         }
@@ -254,125 +292,27 @@
         font-size: 0.9rem;
     }
 
-    
-}
-
-@media (max-width: 480px) {
-    .main-content-area {
-        padding-top: 30px; /* 헤더 높이 60px + 추가 여백 40px */
+    /* Community Header Specific Styles */
+    .community-header {
+        flex-wrap: wrap; /* Allow header items to wrap */
+        gap: 10px; /* Add some gap when wrapping */
     }
-    
-    .user-actions {
-        gap: 10px;
+    .community-header-left {
+        flex-wrap: nowrap; /* Prevent items from wrapping */
+        gap: 15px;
+        align-items: center;
+        flex-grow: 1; /* Allow container to grow */
+        min-width: 0; /* Important for flex items in a flex container */
     }
-    
-    .btn {
-        padding: 7px 14px;
-        font-size: 0.85rem;
+    .community-header-left h2 {
+        white-space: nowrap; /* Keep title on one line */
+        flex-shrink: 0; /* Prevent title from shrinking */
     }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    .section-title a {
-        align-self: flex-end;
-    }
-    
-    .forum-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .forum-stats {
-        width: 100%;
-        justify-content: space-around;
+    .community-header-left .form-control {
+        width: auto; /* Set width based on content */
+        flex-grow: 0; /* Prevent growing */
+        flex-shrink: 0; /* Prevent shrinking */
     }
 }
 
-@media (max-width: 480px) {
-    .main-content-area {
-        padding-top: 30px; /* 헤더 높이 60px + 추가 여백 40px */
-    }
-    
-    .user-actions {
-        gap: 10px;
-    }
-    
-    .btn {
-        padding: 7px 14px;
-        font-size: 0.85rem;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    .section-title a {
-        align-self: flex-end;
-    }
-    
-    .forum-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .forum-stats {
-        width: 100%;
-        justify-content: space-around;
-    }
-}
 
-@media (max-width: 480px) {
-    .main-content-area {
-        padding-top: 30px; /* 헤더 높이 60px + 추가 여백 40px */
-    }
-    
-    .user-actions {
-        gap: 10px;
-    }
-    
-    .btn {
-        padding: 7px 14px;
-        font-size: 0.85rem;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    .section-title a {
-        align-self: flex-end;
-    }
-    
-    .forum-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .forum-stats {
-        width: 100%;
-        justify-content: space-around;
-    }
-}

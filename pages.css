@@ -169,6 +169,12 @@
     gap: 10px;
 }
 
+.author-line {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between avatar and name */
+}
+
 .author-avatar {
     width: 40px;
     height: 40px;
@@ -371,10 +377,10 @@
 .board-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: transparent; /* Changed back to transparent */
+    background-color: transparent;
     border-radius: 8px;
     overflow: hidden;
-    /* Removed border: 1px solid rgba(255, 255, 255, 0.1); */
+    table-layout: fixed; /* Add this line */
 }
 .board-table th, .board-table td {
     padding: 15px;
@@ -479,44 +485,51 @@
 }
 
 @media (min-width: 769px) {
-    .board-table th:nth-child(1), /* 작성게시판 */
-    .board-table td:nth-child(1) {
+    .board-table tbody tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .board-table .post-left-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-grow: 1;
+        min-width: 0;
+    }
+
+    .board-table .post-category-cell {
         width: 120px;
-        text-align: left;
+        flex-shrink: 0;
     }
 
-    .board-table th:nth-child(2), /* 제목 */
-    .board-table td:nth-child(2) {
-        width: auto;
-        text-align: left;
+    .board-table .post-title-cell {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-grow: 1;
     }
 
-    .board-table th:nth-child(3), /* 작성자 */
-    .board-table td:nth-child(3) {
-        width: 90px;
+    .board-table .post-right-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 400px; /* Increased width for the right container */
+        flex-shrink: 0;
+    }
+
+    .board-table .post-right-group > span {
         text-align: center;
+        display: inline-block;
     }
 
-    .board-table th:nth-child(4), /* 작성일 */
-    .board-table td:nth-child(4) {
-        width: 90px;
-        text-align: center;
-        white-space: nowrap; /* Prevent text wrapping */
-    }
-
-    .board-table th:nth-child(5), /* 조회수 */
-    .board-table td:nth-child(5) {
-        width: 70px;
-        text-align: center;
-        white-space: nowrap; /* Prevent text wrapping */
-    }
-
-    .board-table th:nth-child(6), /* 추천수 */
-    .board-table td:nth-child(6) {
-        width: 80px;
-        text-align: center;
-        white-space: nowrap; /* Prevent text wrapping */
-    }
+    .board-table .post-author-cell { width: 100px; }
+    .board-table .post-date-cell { width: 110px; }
+    .board-table .post-views-cell { width: 80px; }
+    .board-table .post-likes-cell { width: 80px; }
 }
 
 @media (max-width: 768px) {

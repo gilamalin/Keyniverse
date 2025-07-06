@@ -220,3 +220,28 @@ header.shrink .btn {
 .back-to-top:hover {
     background-color: var(--primary-dark);
 }
+
+/* Community Board Table Row Clickability */
+.board-table tbody tr {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.board-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle hover effect */
+}
+
+/* Post Actions alignment */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-edit-delete-actions {
+    display: flex;
+    gap: 10px;
+}

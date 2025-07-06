@@ -183,15 +183,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 filteredPosts.forEach(post => {
                     const postRow = document.createElement('tr');
                     postRow.innerHTML = `
-                        <td data-label="카테고리" class="post-category-cell">${post.category}</td>
-                        <td data-label="제목" class="post-title-cell"><a href="post_detail.html?id=${post.id}">${post.title}</a></td>
-                        <td data-label="작성자" class="post-author-cell">${post.author}</td>
-                        <td class="post-stats-bottom-container">
+                        <td class="post-left-group">
+                            <span data-label="카테고리" class="post-category-cell">${post.category}</span>
+                            <span data-label="제목" class="post-title-cell">${post.title}</span>
+                        </td>
+                        <td class="post-right-group">
+                            <span data-label="작성자" class="post-author-cell">${post.author}</span>
                             <span data-label="작성일" class="post-date-cell">${post.createdAt}</span>
                             <span data-label="조회수" class="post-views-cell"><i class="far fa-eye"></i> ${post.views}</span>
                             <span data-label="추천수" class="post-likes-cell"><i class="far fa-thumbs-up"></i> ${post.likes}</span>
                         </td>
                     `;
+                    postRow.style.cursor = 'pointer'; // Add cursor style to indicate clickability
+                    postRow.addEventListener('click', () => {
+                        window.location.href = `post_detail.html?id=${post.id}`;
+                    });
                     postList.appendChild(postRow);
                 });
             } else {
