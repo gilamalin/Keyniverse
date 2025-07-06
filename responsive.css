@@ -155,15 +155,15 @@
 
     .board-table .post-date-cell {
         margin-left: auto; /* This is the key change */
-        width: 60px; /* Final reduction */
+        width: 45px; /* Further reduced width */
         justify-content: center;
     }
     .board-table .post-views-cell {
-        width: 45px; /* Final reduction */
+        width: 30px; /* Further reduced width */
         justify-content: center;
     }
     .board-table .post-likes-cell {
-        width: 45px; /* Final reduction */
+        width: 30px; /* Further reduced width */
         justify-content: center;
     }
 

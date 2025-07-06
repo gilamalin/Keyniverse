@@ -245,3 +245,33 @@ header.shrink .btn {
     display: flex;
     gap: 10px;
 }
+
+/* Comment Action Buttons */
+.comment-actions button {
+    background: none;
+    border: none;
+    color: var(--light-gray);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 5px; /* Add some spacing between buttons */
+}
+
+.comment-actions button:hover {
+    background-color: rgba(106, 90, 205, 0.1); /* A very light primary background */
+    color: var(--primary);
+}
+
+.comment-actions button.btn-danger:hover {
+    background-color: rgba(255, 107, 107, 0.1); /* A very light secondary background */
+    color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+    .comment-actions button {
+        padding: 5px 7px; /* Reduce horizontal padding for mobile */
+        font-size: 0.8rem; /* Slightly smaller font size for mobile */
+    }
+}

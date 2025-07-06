@@ -265,6 +265,18 @@
     margin-left: 10px;
 }
 
+.comment-meta-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-info {
+    display: flex;
+    align-items: center;
+}
+
 .comment-text {
     color: var(--light-gray);
 }
@@ -278,6 +290,16 @@
     color: var(--light);
     min-height: 100px;
     margin-bottom: 10px;
+}
+
+.comment.reply {
+    margin-left: 40px; /* 들여쓰기 */
+    border-left: 3px solid var(--primary); /* 왼쪽 테두리 */
+    padding-left: 15px; /* 테두리와 내용 사이 간격 */
+    background-color: rgba(0, 0, 0, 0.1); /* 미묘한 배경색 변경 */
+    border-radius: 8px; /* 부모 댓글과 동일하게 둥근 모서리 */
+    padding-top: 15px; /* 상단 패딩 추가 */
+    padding-bottom: 15px; /* 하단 패딩 조정 */
 }
 
 /* Guide Page Styles */
@@ -382,6 +404,67 @@
     overflow: hidden;
     table-layout: fixed; /* Add this line */
 }
+
+.board-bottom-controls {
+    margin-top: 30px;
+    display: flex; /* Flexbox를 유지하되, 방향을 변경 */
+    flex-direction: column; /* 자식 요소들을 세로로 쌓음 */
+    align-items: center; /* 자식 요소들을 가로 중앙 정렬 */
+    gap: 20px; /* 요소들 간의 간격 */
+}
+
+.pagination {
+    /* flex-grow: 1; */ /* 더 이상 필요 없음 */
+    text-align: center; /* 페이지네이션 링크들을 중앙 정렬 */
+    width: 100%; /* 부모의 너비를 채우도록 */
+}
+
+.search-area {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto; /* 검색 영역을 오른쪽으로 밀어냅니다 */
+    margin-right: 0; /* 명시적으로 오른쪽 마진 0 */
+    width: auto; /* 너비 자동 조정 */
+}
+
+.search-area .form-control {
+    max-width: 120px; /* 드롭다운 너비 제한 (기존 150px에서 120px로 줄임) */
+}
+
+.search-area input[type="text"] {
+    flex-grow: 1; /* 검색 입력 필드가 남은 공간을 채우도록 */
+    max-width: 250px; /* 최대 너비 설정 */
+}
+
+.search-area .btn {
+    padding: 8px 12px; /* 검색 버튼 패딩 조정 */
+}
+
+@media (max-width: 768px) {
+    .board-bottom-controls {
+        flex-direction: column; /* 모바일에서 세로 정렬 */
+        align-items: stretch; /* 너비 꽉 채우기 */
+    }
+
+    .pagination {
+        text-align: center; /* 모바일에서도 중앙 정렬 유지 */
+        width: 100%; /* 모바일에서 너비 꽉 채우기 */
+        margin-bottom: 40px; /* 검색 영역과의 상하 공간 추가 (더 넓게) */
+    }
+
+    .search-area {
+        flex-direction: column; /* 모바일에서 세로 정렬 */
+        align-items: stretch; /* 너비 꽉 채우기 */
+        margin-left: 0; /* 모바일에서는 margin-left auto 제거 */
+    }
+
+    .search-area .form-control,
+    .search-area input[type="text"] {
+        max-width: 100%; /* 모바일에서 너비 꽉 채우기 */
+    }
+}
+
 .board-table th, .board-table td {
     padding: 15px;
     text-align: left;

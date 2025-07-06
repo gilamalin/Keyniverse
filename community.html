@@ -52,6 +52,7 @@
                     <option value="자유 게시판">자유 게시판</option>
                     <option value="질문과 답변">질문과 답변</option>
                     <option value="타건음 자랑">타건음 자랑</option>
+                    <option value="키캡/스위치">키캡/스위치</option>
                 </select>
             </div>
             <div class="board-controls">
@@ -66,12 +67,23 @@
             </tbody>
         </table>
 
-        <div class="pagination">
-            <a href="#" class="page-link prev"><i class="fas fa-angle-left"></i> 이전</a>
-            <a href="#" class="page-link active">1</a>
-            <a href="#" class="page-link">2</a>
-            <a href="#" class="page-link">3</a>
-            <a href="#" class="page-link next">다음 <i class="fas fa-angle-right"></i></a>
+        <div class="board-bottom-controls">
+            <div class="pagination">
+                <a href="#" class="page-link prev"><i class="fas fa-angle-left"></i> 이전</a>
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link next">다음 <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="search-area">
+                <select id="search-type" class="form-control">
+                    <option value="title">제목</option>
+                    <option value="title_content">제목 + 내용</option>
+                    <option value="author">작성자</option>
+                </select>
+                <input type="text" id="search-keyword" class="form-control" placeholder="검색어를 입력하세요">
+                <button id="search-button" class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </div>
         </div>
 
     </main>
