@@ -12,9 +12,99 @@
     <link rel="stylesheet" href="forms.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Round:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    
+    <style>
+        /* Masonry Layout with Grid Hover Effect */
+        .gallery-container {
+            --gap: 15px;
+            --columns: 4;
+            column-count: var(--columns);
+            column-gap: var(--gap);
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            position: relative; /* For positioning the content overlay */
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            break-inside: avoid;
+            margin-bottom: var(--gap);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: inline-block; /* Fix for preventing unwanted spacing */
+            width: 100%;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        .gallery-item:hover .gallery-item-content {
+            opacity: 1;
+        }
+
+        .gallery-item-content h3 {
+            margin: 0 0 5px;
+            font-size: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .gallery-item-content p {
+            margin: 0;
+            font-size: 0.85rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        
+        /* Responsive Masonry */
+        @media (max-width: 1200px) {
+            .gallery-container { --columns: 3; }
+        }
+        @media (max-width: 768px) {
+            .gallery-container { --columns: 2; }
+        }
+        @media (max-width: 480px) {
+            .gallery-container { --columns: 1; }
+        }
+
+        /* Gallery Header & Filters */
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-filters {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+    </style>
 </head>
 <body>
     <header id="mainHeader">
@@ -22,21 +112,18 @@
             <a href="index.html" class="logo">
                 <span class="logo-text-keyni">Keyni</span>
             </a>
-            
             <nav>
                 <ul>
                     <li><a href="index.html">홈</a></li>
                     <li><a href="community.html">커뮤니티</a></li>
-                    <li><a href="gallery.html">갤러리</a></li>
+                    <li><a href="gallery.html" class="active">갤러리</a></li>
                     <li><a href="reviews.html">리뷰</a></li>
                     <li><a href="guide.html">가이드</a></li>
                 </ul>
             </nav>
-            
             <div class="user-actions">
                 <a href="login.html" class="btn btn-outline">로그인</a>
             </div>
-
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -45,27 +132,18 @@
 
     <main class="container main-content-area">
         <div class="gallery-header">
-            <h2><i class="fas fa-images"></i> 갤러리</h2>
-            <button class="btn btn-primary" onclick="location.href='upload_photo.html'"><i class="fas fa-upload"></i> 사진 올리기</button>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <h2><i class="fas fa-images"></i> 갤러리</h2>
+                <select id="sort-order-select" class="form-control" style="width: 100px;">
+                    <option value="latest">최신순</option>
+                    <option value="popular">인기순</option>
+                </select>
+            </div>
+            <a href="upload_photo.html" class="btn btn-primary"><i class="fas fa-upload"></i> 업로드</a>
         </div>
 
-        <div class="gallery-grid">
-            <!-- Gallery Item 1 -->
-            <a href="#" class="gallery-item">
-                <img src="images/community/keyboard_1.png" alt="나의 첫 커스텀 키보드" loading="lazy">
-                <div class="gallery-item-overlay">
-                    <h3 class="gallery-item-title">나의 첫 커스텀 키보드</h3>
-                    <p class="gallery-item-author">by 키보드초보</p>
-                </div>
-            </a>
-            <!-- Gallery Item 2 -->
-            <a href="#" class="gallery-item">
-                <img src="images/community/keyboard_2.png" alt="우드 팜레스트와 함께" loading="lazy">
-                <div class="gallery-item-overlay">
-                    <h3 class="gallery-item-title">우드 팜레스트와 함께</h3>
-                    <p class="gallery-item-author">by 나무사랑</p>
-                </div>
-            </a>
+        <div class="gallery-container">
+            <!-- Sample gallery items will be populated here -->
         </div>
     </main>
 
@@ -99,5 +177,44 @@
     </footer>
 
     <script src="script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryContainer = document.querySelector('.gallery-container');
+            let galleryItems = JSON.parse(localStorage.getItem('galleryItems')) || [];
+
+            // Function to render gallery items
+            function renderGalleryItems() {
+                galleryContainer.innerHTML = ''; // Clear existing items
+                galleryItems.forEach(item => {
+                    const galleryItemDiv = document.createElement('a');
+                    galleryItemDiv.href = `gallery_detail.html?id=${item.id}`; // Link to detail page
+                    galleryItemDiv.classList.add('gallery-item');
+
+                    // Use the first image for the thumbnail
+                    const img = document.createElement('img');
+                    img.src = item.images[0] || 'images/placeholder.png'; // Fallback placeholder
+                    img.alt = item.title;
+                    img.loading = 'lazy';
+                    galleryItemDiv.appendChild(img);
+
+                    const contentDiv = document.createElement('div');
+                    contentDiv.classList.add('gallery-item-content');
+
+                    const titleH3 = document.createElement('h3');
+                    titleH3.textContent = item.title;
+                    contentDiv.appendChild(titleH3);
+
+                    const authorP = document.createElement('p');
+                    authorP.textContent = `by ${item.author}`; // Display author
+                    contentDiv.appendChild(authorP);
+
+                    galleryItemDiv.appendChild(contentDiv);
+                    galleryContainer.appendChild(galleryItemDiv);
+                });
+            }
+
+            renderGalleryItems();
+        });
+    </script>
 </body>
 </html>

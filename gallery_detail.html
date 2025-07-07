@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리 게시물 상세 - Keyniverse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Round:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="forms.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="responsive.css">
+    <style>
+        /* Image Slider Styles */
+        .image-slider {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .slider-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slider-images img {
+            width: 100%;
+            height: auto;
+            flex-shrink: 0;
+            display: block;
+        }
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-nav-btn.prev { left: 10px; }
+        .slider-nav-btn.next { right: 10px; }
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dot.active { background-color: var(--primary); }
+
+        /* Tag Styles */
+        .post-tags {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .post-tags span {
+            display: inline-block;
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="post-detail-page">
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text-keyni">Keyni</span>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="community.html">커뮤니티</a></li>
+                    <li><a href="gallery.html">갤러리</a></li>
+                    <li><a href="reviews.html">리뷰</a></li>
+                    <li><a href="guide.html">가이드</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-actions">
+                <a href="login.html" class="btn btn-outline">로그인</a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container main-content-area">
+        <div class="post-container">
+            <!-- Post Header -->
+            <header class="post-header">
+                <h1 class="post-title" id="post-title"></h1>
+                <div class="post-meta">
+                    <div class="post-author-info">
+                        <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                        <span class="author-name" id="post-author"></span>
+                    </div>
+                    <span class="post-date" id="post-date"></span>
+                    <div class="post-stats">
+                        <span class="views-count"><i class="far fa-eye"></i> <span id="post-views">0</span></span>
+                        <span class="likes-count"><i class="fas fa-thumbs-up"></i> <span id="post-likes">0</span></span>
+                        <span class="comments-count"><i class="far fa-comment"></i> <span id="post-comments">0</span></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Image Slider -->
+            <div class="image-slider" id="image-slider">
+                <div class="slider-images" id="slider-images"></div>
+                <button class="slider-nav-btn prev" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav-btn next" id="next-btn"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots" id="slider-dots"></div>
+            </div>
+
+            <!-- Post Content -->
+            <div class="post-content" id="post-description">
+            </div>
+
+            <!-- Post Tags -->
+            <div class="post-tags" id="post-tags">
+                <h4><i class="fas fa-tags"></i> 장비 태그</h4>
+            </div>
+
+            <!-- Post Actions -->
+            <div class="post-actions">
+                <a href="#" class="action-btn"><i class="fas fa-thumbs-up"></i> 추천</a>
+                <div class="post-edit-delete-actions">
+                    <a class="action-btn" id="editPostBtn"><i class="fas fa-edit"></i> 수정</a>
+                    <a href="#" class="action-btn btn-danger" id="deletePostBtn"><i class="fas fa-trash"></i> 삭제</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h3>댓글 (<span id="comment-count">0</span>)</h3>
+            <div id="comments-list">
+                <!-- Comments will be loaded here dynamically -->
+                <p style="color: var(--light-gray); text-align: center;">아직 댓글이 없습니다. 첫 댓글을 남겨주세요!</p>
+            </div>
+
+            <!-- Comment Form -->
+            <form class="comment-form">
+                <h3>댓글 쓰기</h3>
+                <textarea id="comment-textarea" placeholder="따뜻한 댓글을 남겨주세요..."></textarea>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">댓글 등록</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Keyniverse</h3>
+                    <p style="color: var(--light-gray); margin-bottom: 20px;">키보드 오타쿠들의 성지</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>고객 지원</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-bullhorn"></i> 공지사항</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> 문의하기</a></li>
+                        <li><a href="#"><i class="fas fa-exclamation-circle"></i> 신고하기</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> 이용약관</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> 개인정보처리방침</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p id="copyright-text">&copy; 2025 Keyniverse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+            let galleryItems = JSON.parse(localStorage.getItem('galleryItems')) || [];
+            let post = galleryItems.find(item => item.id == postId);
+
+            const commentsList = document.getElementById('comments-list');
+            const commentCountSpan = document.getElementById('comment-count');
+            const commentForm = document.querySelector('.comment-form');
+            const commentTextarea = document.getElementById('comment-textarea');
+
+            if (post) {
+                document.getElementById('post-title').textContent = post.title;
+                document.getElementById('post-author').textContent = post.author;
+                document.getElementById('post-date').textContent = post.date;
+                document.getElementById('post-description').textContent = post.description;
+
+                // Image Slider
+                const sliderImagesContainer = document.getElementById('slider-images');
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+                const sliderDotsContainer = document.getElementById('slider-dots');
+                let currentImageIndex = 0;
+
+                if (post.images && post.images.length > 0) {
+                    post.images.forEach((imgSrc, index) => {
+                        const img = document.createElement('img');
+                        img.src = imgSrc;
+                        sliderImagesContainer.appendChild(img);
+
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot');
+                        dot.addEventListener('click', () => showImage(index));
+                        sliderDotsContainer.appendChild(dot);
+                    });
+                    showImage(0);
+                } else {
+                    // Hide slider if no images
+                    document.getElementById('image-slider').style.display = 'none';
+                }
+
+                function showImage(index) {
+                    currentImageIndex = index;
+                    const offset = -currentImageIndex * 100;
+                    sliderImagesContainer.style.transform = `translateX(${offset}%)`;
+
+                    document.querySelectorAll('.dot').forEach((dot, i) => {
+                        if (i === currentImageIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : post.images.length - 1;
+                    showImage(currentImageIndex);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentImageIndex = (currentImageIndex < post.images.length - 1) ? currentImageIndex + 1 : 0;
+                    showImage(currentImageIndex);
+                });
+
+                // Display Tags
+                const postTagsContainer = document.getElementById('post-tags');
+                for (const tagName in post.tags) {
+                    if (post.tags.hasOwnProperty(tagName)) {
+                        const tagSpan = document.createElement('span');
+                        tagSpan.textContent = `${tagName}: ${post.tags[tagName]}`;
+                        postTagsContainer.appendChild(tagSpan);
+                    }
+                }
+
+                // Placeholder for views and likes
+                document.getElementById('post-views').textContent = post.views || 0;
+                document.getElementById('post-likes').textContent = post.likes || 0;
+
+                // --- Delete Functionality ---
+                const deletePostBtn = document.getElementById('deletePostBtn');
+                deletePostBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (confirm('정말로 이 게시물을 삭제하시겠습니까?')) {
+                        let updatedGalleryItems = galleryItems.filter(item => item.id != postId);
+                        localStorage.setItem('galleryItems', JSON.stringify(updatedGalleryItems));
+                        alert('게시물이 삭제되었습니다.');
+                        window.location.href = 'gallery.html'; // Redirect to gallery page
+                    }
+                });
+
+                // Set edit button href dynamically
+                const editPostBtn = document.getElementById('editPostBtn');
+                console.log('editPostBtn 요소:', editPostBtn);
+                console.log('post.id 값:', post.id);
+                if (editPostBtn && post && post.id) {
+                    editPostBtn.href = `edit_photo.html?id=${post.id}`;
+                    console.log('수정 버튼 href 설정됨:', editPostBtn.href);
+                }
+
+                // --- Comment Functionality ---
+                // Initialize comments array if it doesn't exist
+                if (!post.commentsData) {
+                    post.commentsData = [];
+                }
+
+                function renderComments() {
+                    commentsList.innerHTML = ''; // Clear existing comments
+                    if (post.commentsData.length === 0) {
+                        commentsList.innerHTML = '<p style="color: var(--light-gray); text-align: center;">아직 댓글이 없습니다. 첫 댓글을 남겨주세요!</p>';
+                    } else {
+                        post.commentsData.forEach(comment => {
+                            const commentDiv = document.createElement('div');
+                            commentDiv.classList.add('comment-item');
+                            commentDiv.innerHTML = `
+                                <div class="comment-meta">
+                                    <span class="comment-author">${comment.author}</span>
+                                    <span class="comment-date">${comment.date}</span>
+                                </div>
+                                <p class="comment-content">${comment.text}</p>
+                            `;
+                            commentsList.appendChild(commentDiv);
+                        });
+                    }
+                    commentCountSpan.textContent = post.commentsData.length;
+                    document.getElementById('post-comments').textContent = post.commentsData.length;
+                }
+
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const commentText = commentTextarea.value.trim();
+
+                    if (commentText) {
+                        const newComment = {
+                            id: Date.now(),
+                            author: '현재 사용자', // Placeholder
+                            date: new Date().toLocaleDateString('ko-KR'),
+                            text: commentText
+                        };
+                        post.commentsData.push(newComment);
+                        
+                        // Update localStorage
+                        const postIndex = galleryItems.findIndex(item => item.id == postId);
+                        if (postIndex !== -1) {
+                            galleryItems[postIndex] = post;
+                            localStorage.setItem('galleryItems', JSON.stringify(galleryItems));
+                        }
+
+                        commentTextarea.value = ''; // Clear textarea
+                        renderComments(); // Re-render comments
+                    }
+                });
+
+                renderComments(); // Initial render of comments
+
+            } else {
+                // Handle case where post is not found
+                document.querySelector('.post-container').innerHTML = '<p style="text-align: center; color: var(--light-gray);">게시물을 찾을 수 없습니다.</p>';
+                document.querySelector('.comments-section').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

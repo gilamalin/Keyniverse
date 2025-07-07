@@ -19,7 +19,7 @@
 }
 
 header.shrink {
-    padding: 8px 0;
+    padding: 5px 0; /* 헤더 축소 시 상하 여백을 줄여 더 좁아지도록 수정 */
 }
 
 .header-container {
@@ -29,15 +29,9 @@ header.shrink {
     transition: all 0.3s ease;
 }
 
-header.shrink .logo-text {
-    display: none;
-}
 
-header.shrink .logo {
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-}
+
+
 
 .logo {
     display: flex;
@@ -62,6 +56,11 @@ header.shrink .logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary); /* 현재 디자인에 어울리는 색상 */
+    transition: font-size 0.3s ease; /* 폰트 크기 변경 시 부드러운 전환 효과 추가 */
+}
+
+header.shrink .logo-text-keyni {
+    font-size: 1.5rem; /* 스크롤 시 폰트 크기 축소 */
 }
 
 nav ul {
@@ -85,6 +84,11 @@ nav a:hover, nav a.active {
     color: white;
 }
 
+header.shrink nav a {
+    padding: 4px 10px; /* 축소 시 메뉴 항목의 상하 여백 감소 */
+    font-size: 1rem; /* 축소 시 메뉴 항목의 폰트 크기 감소 */
+}
+
 .mobile-menu-toggle {
     display: none; /* Hidden by default */
     background: none;
@@ -93,6 +97,11 @@ nav a:hover, nav a.active {
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1100;
+    transition: font-size 0.3s ease; /* 아이콘 크기 변경 시 부드러운 전환 효과 추가 */
+}
+
+header.shrink .mobile-menu-toggle {
+    font-size: 1.2rem; /* 스크롤 시 아이콘 크기 축소 */
 }
 
 /* Hero Section */
