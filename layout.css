@@ -106,7 +106,7 @@ header.shrink .mobile-menu-toggle {
 
 /* Hero Section */
 .hero {
-    padding: 40px 0 40px; /* 상단 패딩을 40px로 조정 */
+    padding: 80px 0 80px; /* Increased padding for more vertical space */
     text-align: center;
     background: radial-gradient(circle at center, rgba(42, 39, 79, 0.6) 0%, rgba(26, 26, 46, 0) 70%);
 }

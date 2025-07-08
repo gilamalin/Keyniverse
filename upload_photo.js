@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 images: uploadedImages, // Array of Base64 image strings
                 tags: tags,
                 author: '익명', // Placeholder for current user
-                date: new Date().toLocaleDateString('ko-KR'),
+                date: new Date().toISOString(), // Store full ISO date string for precise filtering
                 likes: 0,
                 comments: 0,
                 commentsData: [] // Initialize comments for new posts
