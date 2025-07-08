@@ -1,0 +1,152 @@
+/* Image Slider Styles */
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 20px auto 50px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.slider-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slider-images img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    display: block;
+}
+.slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-nav-btn.prev { left: 10px; }
+.slider-nav-btn.next { right: 10px; }
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.dot.active { background-color: var(--primary); }
+
+/* Tag Styles */
+.post-tags {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+.post-tags span {
+    display: inline-block;
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 40px;
+}
+
+.comments-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.comment {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+}
+
+.comment-body {
+    flex: 1;
+}
+
+.comment-author {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    margin-left: 10px;
+}
+
+.comment-meta-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-info {
+    display: flex;
+    align-items: center;
+}
+
+.comment-text {
+    color: var(--light-gray);
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    color: var(--light);
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+.comment.reply {
+    margin-left: 40px; /* 들여쓰기 */
+    border-left: 3px solid var(--primary); /* 왼쪽 테두리 */
+    padding-left: 15px; /* 테두리와 내용 사이 간격 */
+    background-color: rgba(0, 0, 0, 0.1); /* 미묘한 배경색 변경 */
+    border-radius: 8px; /* 부모 댓글과 동일하게 둥근 모서리 */
+    padding-top: 15px; /* 상단 패딩 추가 */
+    padding-bottom: 15px; /* 하단 패딩 조정 */
+}

@@ -1,0 +1,111 @@
+/* Masonry Layout with Grid Hover Effect */
+.gallery-container {
+    --gap: 15px;
+    --columns: 4;
+    column-count: var(--columns);
+    column-gap: var(--gap);
+    padding: 20px 0;
+}
+
+.gallery-item {
+    position: relative; /* For positioning the content overlay */
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    break-inside: avoid;
+    margin-bottom: var(--gap);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: inline-block; /* Fix for preventing unwanted spacing */
+    width: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.gallery-item:hover .gallery-item-content {
+    opacity: 1;
+}
+
+.gallery-item-content h3 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.gallery-item-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Responsive Masonry */
+@media (max-width: 1200px) {
+    .gallery-container { --columns: 3; }
+}
+@media (max-width: 768px) {
+    .gallery-container { --columns: 2; }
+}
+@media (max-width: 480px) {
+    .gallery-container { --columns: 1; }
+}
+
+/* Gallery Header & Filters */
+.gallery-header {
+    display: flex;
+    flex-direction: column; /* Always column for consistent structure */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.gallery-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.gallery-title-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.gallery-title-controls h2 {
+    white-space: nowrap; /* Prevent title from wrapping */
+}
+
+.search-area {
+    width: 100%;
+}
+
+/* No media query needed for this specific layout change */
+
+.gallery-filters {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
